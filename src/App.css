@@ -2,13 +2,13 @@
     font-family: "Inter", sans-serif;
     --banner-color: #EDAE49;
     --ascent-color: #D1495B;
-    --background-color: #003D5B;    
+    --game-card-color: #2A377F;
+    --text-color: lightblue;
 }
 
 body {
     margin: 0;
     padding: 0;
-    /* background-color: var(--background-color); */
 }
 
 p, h1 { 
@@ -27,7 +27,8 @@ p, h1 {
     background-color: var(--banner-color);
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
+    align-items: center;
 }
 
 .more-info {
@@ -36,10 +37,10 @@ p, h1 {
     padding: 4px 16px;
     margin-left: auto;
     background-color: var(--banner-color);
-    text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: end;
+    align-items: center;
 }
 
 ul {
@@ -52,13 +53,15 @@ ul {
     margin: 32px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    max-width: calc(250px * 3 + 2rem);
+    margin-left: auto;
+    margin-right: auto;
     gap: 16px;
 }
 
 
 .game-card {
-    background-color: #30638E;
-    border: 1px solid var(--banner-color);
+    background-color: var(--game-card-color);
     border-radius: 16px;
     display: flex;
     flex-direction: column;
@@ -69,10 +72,32 @@ ul {
     transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
+@media (max-width: 600px) {
+    /* one column only – every card gets the full available width */
+    .games-display {
+        grid-template-columns: 1fr;
+        margin: 16px;          /* optional smaller margin on mobile */
+        gap: 12px;
+    }
+
+    /* drop the max‑width so the card fills the grid cell */
+    .game-card {
+        max-width: none;
+        width: 100%;
+    }
+
+    .title {
+        width: 100%;
+    }
+
+    .more-info {
+        display: none;
+    }
+}
+
 .game-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
-    border-color: rgba(237, 174, 73, 0.6);
+    border: 2px solid var(--banner-color);
 }
 
 
@@ -91,7 +116,7 @@ ul {
 .description {
     font-size: 14px;
     line-height: 1.5;
-    color: lightblue;
+    color: var(--text-color);
     text-align: left;
     margin-top: 6px;
     margin-bottom: 16px;
@@ -99,16 +124,29 @@ ul {
 }
 
 
+/* make card images fill their container */
+.game-card .image-wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
+.game-card .image-wrapper img {
+    width: 100%;
+    height: auto;          /* keep aspect ratio */
+    display: block;
+}
+
 .info-btn {
     background-color: transparent;
     border: 1px solid var(--ascent-color);
     padding: 5px 14px;
     border-radius: 20px;
+    margin: 16px 0;
 }
 
 .info-btn:hover {
     background-color: var(--ascent-color);
-    
+    cursor: pointer;
 }
 
 .info-btn a {

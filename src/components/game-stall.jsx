@@ -8,9 +8,9 @@ function GameStall () {
                 {games.map((game, index) => {
                     return (
                         <li key={index} className="game-card">
-                            <div>
-                                <img style={{ height: "150px"}} 
-                                src={game.img} 
+                            <div className="image-wrapper">
+                                <img
+                                src={game.img}
                                 alt={"Image of " + game.title}
                                 />
                             </div>
