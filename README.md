@@ -34,7 +34,8 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented required features:
 
-<img src='https://imgur.com/a/pzD4HdI' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<!-- <img src='https://imgur.com/a/pzD4HdI' title='Video Walkthrough' width='' alt='Video Walkthrough' /> -->
+[![Video Walkthrough](https://i.imgur.com/thumbnail.png)](https://imgur.com/a/pzD4HdI)
 
 ## Notes
 
